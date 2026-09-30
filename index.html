@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adam asmaca · Magistr viktorinası</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Adam asmaca</h1>
+<p class="sub">Magistr səviyyəli ümumi dünya görüşü viktorinası · 70 suallıq bazadan hər iştirakçıya fərqli 10 sual</p>
+
+<section id="start" class="card">
+  <label for="nm" style="font-weight:700;font-size:18px">İştirakçının adı</label>
+  <input id="nm" type="text" maxlength="20" autocomplete="off" placeholder="Adınızı yazın">
+  <div style="font-weight:700;font-size:18px;margin-top:14px">Obrazını seç</div>
+  <div class="chars" id="chars"></div>
+  <button class="btn" id="go" disabled>Oyuna başla</button>
+  <div class="board" id="board" hidden><h2>Nəticələr</h2><ul id="bl"></ul></div>
+</section>
+
+<section id="play" hidden>
+  <div class="top card" style="padding:10px 18px">
+    <span id="who"></span><span id="qn"></span><span id="sc"></span><span class="hearts" id="hr" aria-label="Qalan can"></span>
+  </div>
+  <div class="game">
+    <div class="stage"><svg id="fig" viewBox="0 0 300 330" role="img" aria-label="Adam asmaca səhnəsi"></svg></div>
+    <div class="card">
+      <span class="cat" id="cat"></span>
+      <div class="hint" id="hint"></div>
+      <div class="word" id="word" aria-live="polite"></div>
+      <div class="kb" id="kb"></div>
+      <div class="msg" id="msg"></div>
+      <button class="btn alt" id="next" hidden>Növbəti sual</button>
+    </div>
+  </div>
+</section>
+
+<section id="end" class="card" hidden style="text-align:center">
+  <svg id="endfig" viewBox="100 30 200 300" style="height:200px" aria-hidden="true"></svg>
+  <h2 id="endt" style="margin:4px 0"></h2>
+  <p class="big" id="ends"></p>
+  <p class="sub" id="endd"></p>
+  <button class="btn" id="again">Yeni iştirakçı</button>
+</section>
+</main>
+
+<script src="questions.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

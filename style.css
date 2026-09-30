@@ -1,0 +1,46 @@
+:root{--bg:#e9f2ff;--bg2:#d3e4ff;--card:#fff;--ink:#16213a;--mute:#5d6b8a;--acc:#ff7a45;--acc2:#ffc93c;--ok:#22a06b;--bad:#e5484d;--line:#c5d5f0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a2e;--bg2:#1b2746;--card:#1f2b4a;--ink:#eef3ff;--mute:#9fb0d6;--line:#33456f}}
+:root[data-theme="dark"]{--bg:#121a2e;--bg2:#1b2746;--card:#1f2b4a;--ink:#eef3ff;--mute:#9fb0d6;--line:#33456f}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;font-family:'Baloo 2','Trebuchet MS',system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 0,var(--bg2),var(--bg) 70%);background-color:var(--bg)}
+main{max-width:980px;margin:0 auto;padding:18px 14px 40px}
+h1{font-size:clamp(28px,6vw,46px);margin:6px 0 2px;font-weight:800;line-height:1.05}
+p.sub{margin:0 0 18px;color:var(--mute);font-size:17px}
+.card{background:var(--card);border-radius:24px;padding:18px;box-shadow:0 10px 30px rgba(20,40,90,.14)}
+input[type=text]{width:100%;font:inherit;font-size:20px;padding:10px 16px;border-radius:16px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+input:focus,button:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:14px 0}
+.ch{border:3px solid var(--line);background:var(--bg);border-radius:20px;padding:6px 6px 10px;cursor:pointer;font:inherit;color:var(--ink);font-weight:700;font-size:18px}
+.ch[aria-pressed=true]{border-color:var(--acc);background:var(--bg2);transform:translateY(-4px)}
+.ch svg{width:100%;height:150px}
+.btn{font:inherit;font-weight:800;font-size:20px;border:0;border-radius:18px;padding:10px 26px;background:var(--acc);color:#fff;cursor:pointer;box-shadow:0 5px 0 #c4541f}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c4541f}
+.btn.alt{background:var(--acc2);color:#3a2a00;box-shadow:0 5px 0 #c59a12}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.board{margin-top:18px}.board h2{font-size:22px;margin:0 0 6px}
+.board li{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--line)}.board ul{list-style:none;margin:0;padding:0}
+.top{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:700}
+.hearts{color:var(--bad);letter-spacing:2px;font-size:22px}
+.game{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:16px}
+@media(max-width:700px){.game{grid-template-columns:1fr}}
+.stage{background:linear-gradient(#bfe0ff,#e8f4ff);border-radius:20px;padding:6px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .stage{background:linear-gradient(#27407a,#1a2a52)}}
+.stage svg{width:100%;height:auto;max-height:380px;display:block}
+.cat{display:inline-block;background:var(--acc2);color:#3a2a00;border-radius:12px;padding:0 12px;font-weight:700}
+.hint{font-size:clamp(19px,3.4vw,25px);margin:8px 0 14px;font-weight:700;line-height:1.25}
+.word{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}
+.word span{width:38px;height:48px;border-bottom:5px solid var(--ink);font-size:32px;font-weight:800;text-align:center;line-height:46px}
+.word span.miss{color:var(--bad)}
+.kb{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px}
+.k{font:inherit;font-weight:800;font-size:19px;padding:6px 0;border-radius:12px;border:0;background:var(--bg2);color:var(--ink);cursor:pointer;box-shadow:0 3px 0 var(--line)}
+.k.ok{background:var(--ok);color:#fff}.k.no{background:var(--bad);color:#fff}.k:disabled{cursor:default}
+.msg{min-height:34px;font-size:20px;font-weight:800;margin:10px 0}
+.big{font-size:clamp(44px,12vw,88px);font-weight:800;color:var(--acc);margin:0;line-height:1}
+.pop{animation:pop .4s cubic-bezier(.3,1.6,.5,1);transform-box:fill-box;transform-origin:center}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.sway{animation:sway 1.8s ease-in-out infinite;transform-origin:200px 42px}
+@keyframes sway{50%{transform:rotate(4deg)}0%,100%{transform:rotate(-4deg)}}
+.hop{animation:hop .7s ease-in-out infinite alternate}
+@keyframes hop{to{transform:translateY(-14px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+[hidden]{display:none!important}
